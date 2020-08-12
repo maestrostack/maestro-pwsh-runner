@@ -1,0 +1,54 @@
+{
+  "name": "terraformjs",
+  "version": "0.1.0",
+  "description": "A HashiCorp Terraform wrapper",
+  "main": "src/index.js",
+  "files": [
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/strigo/terraformjs.git"
+  },
+  "keywords": [
+    "terraform",
+    "hashicorp",
+    "terraformjs"
+  ],
+  "authors": [
+    "Nir Cohen <nir@strigo.io> (https://github.com/nir0s)"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/strigo/terraformjs/issues"
+  },
+  "homepage": "http://github.com/strigo/terraformjs",
+  "dependencies": {
+    "which": "^1.2.12",
+    "shelljs": "^0.7.6"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "codecov.io": "^0.1.6",
+    "eslint": "^3.15.0",
+    "eslint-config-airbnb-base": "^11.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-mocha": "^4.8.0",
+    "eslint-plugin-react": "^6.7.1",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0",
+    "proxyquire": "^1.7.11",
+    "rimraf": "^2.6.0",
+    "sinon": "^1.17.7",
+    "testdouble": "^1.11.1"
+  },
+  "scripts": {
+    "clean": "rimraf lib dist es coverage",
+    "lint": "eslint src test",
+    "test": "npm run lint && mocha --reporter spec --check-leaks test/ && npm run test:cov",
+    "test:watch": "mocha --reporter spec --check-leaks test/ -w",
+    "test:cov": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot --check-leaks test/",
+    "check-coverage": "istanbul check-coverage --statements 95 --branches 95 --functions 95 --lines 95",
+    "report-coverage": "cat ./coverage/lcov.info | codecov"
+  }
+}

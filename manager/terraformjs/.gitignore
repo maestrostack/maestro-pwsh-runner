@@ -1,0 +1,6 @@
+# Generic Nodejs
+node_modules/
+coverage/
+
+# Project
+terraform.tfvars
